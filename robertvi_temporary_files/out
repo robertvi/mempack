@@ -1,0 +1,1 @@
+g++ -Wno-write-strings -Wno-deprecated -I/usr/include/boost -I/usr/include/ -lm -O2 src/draw_graphs.cpp src/globals.cpp src/paramopt.c -o bin/kk_plot

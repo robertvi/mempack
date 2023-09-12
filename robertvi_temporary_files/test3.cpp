@@ -1,0 +1,13 @@
+/*
+
+g++ -Wno-write-strings -Wno-deprecated -I/usr/include/boost -I/usr/include/ -lm -O2 robertvi_temporary_files/test3.cpp -o robertvi_temporary_files/test3
+
+*/
+
+#include <boost/graph/random_layout.hpp>
+
+int main(int argc, char* argv[]){
+	
+  	return 1;
+}
+

@@ -1,0 +1,36 @@
+In file included from /usr/include/boost/tuple/tuple.hpp:24,
+                 from /usr/include/boost/graph/graph_traits.hpp:16,
+                 from /usr/include/boost/graph/random_layout.hpp:12,
+                 from src/draw_graphs.cpp:31:
+/usr/include/boost/graph/circle_layout.hpp: In function ‘void boost::circle_graph_layout(const VertexListGraph&, PositionMap, Radius)’:
+/usr/include/boost/graph/circle_layout.hpp:35:5: error: ‘property_traits’ was not declared in this scope; did you mean ‘property_value’?
+   35 |     BOOST_STATIC_ASSERT(
+      |     ^~~~~~~~~~~~~~~~~~~
+/usr/include/boost/graph/circle_layout.hpp:35:5: error: expected primary-expression before ‘>’ token
+   35 |     BOOST_STATIC_ASSERT(
+      |     ^~~~~~~~~~~~~~~~~~~
+/usr/include/boost/graph/circle_layout.hpp:35:5: error: ‘::value_type’ has not been declared
+   35 |     BOOST_STATIC_ASSERT(
+      |     ^~~~~~~~~~~~~~~~~~~
+src/draw_graphs.cpp: In function ‘int main(int, char**)’:
+src/draw_graphs.cpp:524:44: error: no matching function for call to ‘random_graph_layout(Graph&, PositionMap&, int, int, int, int, boost::random::minstd_rand&)’
+  524 |                         random_graph_layout(G, position, 0, (int)width, 0, (int)height, gen);
+      |                         ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/draw_graphs.cpp:31:
+/usr/include/boost/graph/random_layout.hpp:24:6: note: candidate: ‘template<class Topology, class Graph, class PositionMap> void boost::random_graph_layout(const Graph&, PositionMap, const Topology&)’
+   24 | void random_graph_layout(
+      |      ^~~~~~~~~~~~~~~~~~~
+/usr/include/boost/graph/random_layout.hpp:24:6: note:   template argument deduction/substitution failed:
+src/draw_graphs.cpp:524:44: note:   candidate expects 3 arguments, 7 provided
+  524 |                         random_graph_layout(G, position, 0, (int)width, 0, (int)height, gen);
+      |                         ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from src/draw_graphs.cpp:32:
+/usr/include/boost/graph/circle_layout.hpp: In instantiation of ‘void boost::circle_graph_layout(const VertexListGraph&, PositionMap, Radius) [with VertexListGraph = boost::adjacency_list<boost::vecS, boost::vecS, boost::undirectedS, boost::no_property, boost::property<boost::edge_weight_t, double> >; PositionMap = boost::iterator_property_map<__gnu_cxx::__normal_iterator<boost::simple_point<double>*, std::vector<boost::simple_point<double> > >, boost::vec_adj_list_vertex_id_map<boost::no_property, long unsigned int> >; Radius = double]’:
+src/draw_graphs.cpp:527:23:   required from here
+/usr/include/boost/graph/circle_layout.hpp:53:20: error: no match for ‘operator[]’ (operand types are ‘boost::simple_point<double>’ and ‘int’)
+   53 |         position[v][0] = radius * cos(i * two_pi_over_n);
+      |         ~~~~~~~~~~~^
+/usr/include/boost/graph/circle_layout.hpp:54:20: error: no match for ‘operator[]’ (operand types are ‘boost::simple_point<double>’ and ‘int’)
+   54 |         position[v][1] = radius * sin(i * two_pi_over_n);
+      |         ~~~~~~~~~~~^
+make: *** [Makefile:40: kk_plot] Error 1
