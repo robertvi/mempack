@@ -7,6 +7,11 @@ if [[ "$DO_INSTALLS" == "true" ]]; then
     #tested on ubuntu jammy using boost lib version 1.74
     sudo apt install libboost-dev
     cat /usr/include/boost/version.hpp | grep 'define BOOST_LIB_VERSION'
+
+    cd robertvi_temporary_files
+    wget https://boostorg.jfrog.io/artifactory/main/release/1.83.0/source/boost_1_83_0.tar.gz
+    tar -xf boost_1_83_0.tar.gz
+    cd -
 fi
 
 make clean
